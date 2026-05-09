@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Neural network with one hidden layer - public attributes."""
+"""Defines a NeuralNetwork class with one hidden layer."""
 import numpy as np
 
 
@@ -7,6 +7,12 @@ class NeuralNetwork:
     """Neural network with one hidden layer for binary classification."""
 
     def __init__(self, nx, nodes):
+        """Initialize neural network.
+
+        Args:
+            nx (int): number of input features.
+            nodes (int): number of nodes in the hidden layer.
+        """
         if not isinstance(nx, int):
             raise TypeError("nx must be an integer")
         if nx < 1:
