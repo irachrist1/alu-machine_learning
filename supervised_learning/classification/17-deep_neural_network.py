@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
-"""Deep neural network with private attributes."""
+"""Defines a DeepNeuralNetwork class with private attributes."""
 import numpy as np
 
 
 class DeepNeuralNetwork:
-    """Deep neural network for binary classification."""
+    """Deep neural network performing binary classification."""
 
     def __init__(self, nx, layers):
+        """Initialize deep neural network with He weight initialization.
+
+        Args:
+            nx (int): number of input features.
+            layers (list): number of nodes in each layer.
+        """
         if not isinstance(nx, int):
             raise TypeError("nx must be an integer")
         if nx < 1:
@@ -19,20 +25,23 @@ class DeepNeuralNetwork:
         self.__cache = {}
         self.__weights = {}
         prev = nx
-        for l, nodes in enumerate(layers, 1):
-            self.__weights['W{}'.format(l)] = (
+        for lay, nodes in enumerate(layers, 1):
+            self.__weights['W{}'.format(lay)] = (
                 np.random.randn(nodes, prev) * np.sqrt(2 / prev))
-            self.__weights['b{}'.format(l)] = np.zeros((nodes, 1))
+            self.__weights['b{}'.format(lay)] = np.zeros((nodes, 1))
             prev = nodes
 
     @property
     def L(self):
+        """Getter for number of layers."""
         return self.__L
 
     @property
     def cache(self):
+        """Getter for intermediary values cache."""
         return self.__cache
 
     @property
     def weights(self):
+        """Getter for weights and biases dictionary."""
         return self.__weights
