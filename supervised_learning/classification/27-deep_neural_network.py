@@ -82,7 +82,7 @@ class DeepNeuralNetwork:
             float: cost of the model.
         """
         m = Y.shape[1]
-        return -np.sum(Y * np.log(A + 1e-8)) / m
+        return -np.sum(Y * np.log(A)) / m
 
     def evaluate(self, X, Y):
         """Evaluate the neural network's predictions.
