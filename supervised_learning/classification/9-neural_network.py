@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
-"""Neural network with one hidden layer - private attributes."""
+"""Defines a NeuralNetwork class with private attributes."""
 import numpy as np
 
 
 class NeuralNetwork:
-    """Neural network with one hidden layer for binary classification."""
+    """Neural network with one hidden layer, private attributes."""
 
     def __init__(self, nx, nodes):
+        """Initialize neural network.
+
+        Args:
+            nx (int): number of input features.
+            nodes (int): number of nodes in the hidden layer.
+        """
         if not isinstance(nx, int):
             raise TypeError("nx must be an integer")
         if nx < 1:
@@ -24,24 +30,30 @@ class NeuralNetwork:
 
     @property
     def W1(self):
+        """Getter for hidden layer weights."""
         return self.__W1
 
     @property
     def b1(self):
+        """Getter for hidden layer bias."""
         return self.__b1
 
     @property
     def A1(self):
+        """Getter for hidden layer activated output."""
         return self.__A1
 
     @property
     def W2(self):
+        """Getter for output neuron weights."""
         return self.__W2
 
     @property
     def b2(self):
+        """Getter for output neuron bias."""
         return self.__b2
 
     @property
     def A2(self):
+        """Getter for output neuron activated output."""
         return self.__A2
