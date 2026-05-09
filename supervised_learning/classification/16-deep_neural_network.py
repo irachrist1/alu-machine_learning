@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
-"""Deep neural network with public attributes."""
+"""Defines a DeepNeuralNetwork class with public attributes."""
 import numpy as np
 
 
 class DeepNeuralNetwork:
-    """Deep neural network for binary classification."""
+    """Deep neural network performing binary classification."""
 
     def __init__(self, nx, layers):
+        """Initialize deep neural network with He weight initialization.
+
+        Args:
+            nx (int): number of input features.
+            layers (list): number of nodes in each layer.
+        """
         if not isinstance(nx, int):
             raise TypeError("nx must be an integer")
         if nx < 1:
@@ -19,8 +25,8 @@ class DeepNeuralNetwork:
         self.cache = {}
         self.weights = {}
         prev = nx
-        for l, nodes in enumerate(layers, 1):
-            self.weights['W{}'.format(l)] = (
+        for lay, nodes in enumerate(layers, 1):
+            self.weights['W{}'.format(lay)] = (
                 np.random.randn(nodes, prev) * np.sqrt(2 / prev))
-            self.weights['b{}'.format(l)] = np.zeros((nodes, 1))
+            self.weights['b{}'.format(lay)] = np.zeros((nodes, 1))
             prev = nodes
