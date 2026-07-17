@@ -1,0 +1,22 @@
+{
+  "social": {
+    "original_rows": 155,
+    "exact_duplicates_removed": 5,
+    "rows_after_deduplication": 150,
+    "unique_customers": 84
+  },
+  "transactions": {
+    "rows_after_cleaning": 150,
+    "missing_ratings_imputed": 10,
+    "rating_median_used": 3.0,
+    "duplicate_rows_removed": 0
+  },
+  "merge": {
+    "join_type": "inner",
+    "relationship": "many_to_one",
+    "rows_before_merge": 150,
+    "rows_after_merge": 117,
+    "transactions_without_social_profile": 33,
+    "duplicate_transaction_ids_after_merge": 0
+  }
+}

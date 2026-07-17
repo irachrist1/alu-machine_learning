@@ -1,0 +1,49 @@
+{
+  "train_rows": 8,
+  "test_rows": 8,
+  "train_original_samples": 2,
+  "test_original_samples": 2,
+  "trained_identities": [
+    "christian_tonny_gentil_iradukunda",
+    "mahlet_tilahun"
+  ],
+  "evaluated_identities": [
+    "christian_tonny_gentil_iradukunda",
+    "mahlet_tilahun"
+  ],
+  "original_samples_per_identity": {
+    "christian_tonny_gentil_iradukunda": 2,
+    "mahlet_tilahun": 2
+  },
+  "all_identities_evaluated": true,
+  "accuracy": 1.0,
+  "f1_macro": 1.0,
+  "log_loss": 0.09592978956468803,
+  "classification_report": {
+    "christian_tonny_gentil_iradukunda": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 4.0
+    },
+    "mahlet_tilahun": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 4.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 8.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 8.0
+    }
+  }
+}

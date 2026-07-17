@@ -1,0 +1,42 @@
+{
+  "train_rows": 12,
+  "test_rows": 4,
+  "train_original_samples": 3,
+  "test_original_samples": 1,
+  "trained_identities": [
+    "christian_tonny_gentil_iradukunda",
+    "yvette_uwimpaye"
+  ],
+  "evaluated_identities": [
+    "christian_tonny_gentil_iradukunda"
+  ],
+  "original_samples_per_identity": {
+    "christian_tonny_gentil_iradukunda": 3,
+    "yvette_uwimpaye": 1
+  },
+  "all_identities_evaluated": false,
+  "accuracy": 1.0,
+  "f1_macro": 1.0,
+  "log_loss": 0.08796828941397757,
+  "classification_report": {
+    "christian_tonny_gentil_iradukunda": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 4.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 4.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 4.0
+    }
+  }
+}
