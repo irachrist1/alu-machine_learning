@@ -3,6 +3,9 @@ Hi again @all. I checked the rubric and worked on some parts of the assignment. 
 Drive folder:
 https://drive.google.com/drive/folders/1K61vL1wpahKuZmzpgbmyYaSKZufWVr4z
 
+Work completed so far:
+https://github.com/irachrist1/alu-machine_learning/pull/1
+
 Photos:
 1. neutral.jpg - normal face, no smile
 2. smiling.jpg - clearly smiling
