@@ -1,0 +1,25 @@
+Hi again @all. I checked the rubric and worked on some parts of the assignment. As Hassan mentioned, every member must upload 3 photos and 2 separate audio recordings to the Drive folder.
+
+Drive folder:
+https://drive.google.com/drive/folders/1K61vL1wpahKuZmzpgbmyYaSKZufWVr4z
+
+Photos:
+1. neutral.jpg - normal face, no smile
+2. smiling.jpg - clearly smiling
+3. surprised.jpg - clear surprised expression
+
+Use close-up, front-facing photos with good lighting and no filters.
+
+Audio:
+1. yes_approve.m4a - say exactly “Yes, approve.”
+2. confirm_transaction.m4a - say exactly “Confirm transaction.”
+
+Record in a quiet place. Use the same full-name folder under Images and Audios.
+
+Current status:
+- Myself: complete
+- Hassan: needs all 3 images and 2 audios
+- Mahlet: audio complete, needs 3 images
+- Yvette: needs the 3 required close-up expressions and both audios
+
+Please upload the remaining files as soon as possible. After everyone uploads, we will retrain the face and voice models, rerun the notebook and tests, update the report, and record the final system demonstration.
