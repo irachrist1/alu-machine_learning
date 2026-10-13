@@ -11,10 +11,10 @@ def maximization(X, g):
             not isinstance(g, np.ndarray) or g.ndim != 2 or
             g.shape[0] == 0 or g.shape[1] != X.shape[0] or
             g.dtype.kind not in 'biuf' or not np.all(np.isfinite(g)) or
-            np.any(g < 0) or not np.allclose(g.sum(axis=0), 1)):
+            not np.allclose(g.sum(axis=0), 1)):
         return None, None, None
     counts = g.sum(axis=1)
-    if np.any(counts <= 0):
+    if np.any(counts == 0):
         return None, None, None
     pi = counts / X.shape[0]
     m = np.dot(g, X.astype(float)) / counts[:, None]

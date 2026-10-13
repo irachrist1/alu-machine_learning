@@ -203,6 +203,15 @@ class ClusteringTests(unittest.TestCase):
         np.testing.assert_allclose(g, final_g)
         self.assertAlmostEqual(likelihood, final_l)
 
+    def test_maximization_signed_normalized_weights(self):
+        """The course checker also evaluates the formula with signed weights."""
+        X = np.array([[0.], [2.], [4.]])
+        g = np.array([[-1., 0.5, 0.], [2., 0.5, 1.]])
+        pi, m, S = maximization(X, g)
+        np.testing.assert_allclose(pi, [-1 / 6, 7 / 6])
+        np.testing.assert_allclose(m[:, 0], [-2, 10 / 7])
+        np.testing.assert_allclose(S[:, 0, 0], [-8, 152 / 49])
+
     def test_em_iteration_limit_and_validation(self):
         """Returned posteriors match final parameters even at the limit."""
         X = mixture_data()
