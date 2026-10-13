@@ -223,6 +223,17 @@ class ClusteringTests(unittest.TestCase):
                         {'iterations': 0}, {'verbose': 1}):
             self.assertEqual(em(X, 4, **options), (None,) * 5)
 
+    def test_em_verbose_rounding(self):
+        """The single-Gaussian MLE prints rounded values without padding."""
+        X = np.arange(7, dtype=float).reshape(-1, 1)
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            pi, m, S, g, likelihood = em(X, 1, verbose=True)
+        np.testing.assert_allclose(S, [[[4.]]])
+        self.assertAlmostEqual(likelihood, -14.784599996352325)
+        self.assertEqual(output.getvalue().splitlines()[-1],
+                         'Log Likelihood after 2 iterations: -14.7846')
+
     def test_bic_selects_course_cluster_count(self):
         """BIC balances likelihood against full-covariance parameter count."""
         X = mixture_data()
@@ -234,14 +245,11 @@ class ClusteringTests(unittest.TestCase):
                                    - 2 * likelihoods)
         self.assertAlmostEqual(scores[3], 189096.84790787, places=4)
 
-    def test_bic_single_size_and_validation(self):
-        """A single-size BIC comparison is valid; impossible ranges fail."""
+    def test_bic_requires_comparison_and_validates_ranges(self):
+        """The course requires at least two different sizes to compare."""
         X = np.array([[0.], [1.], [2.], [3.]])
-        best_k, _, likelihoods, scores = bic(X, kmax=1)
-        self.assertEqual(best_k, 1)
-        self.assertEqual(likelihoods.shape, (1,))
-        self.assertEqual(scores.shape, (1,))
-        for options in ({'kmin': 2, 'kmax': 1}, {'kmax': 5}, {'kmin': True}):
+        for options in ({'kmax': 1}, {'kmin': 2, 'kmax': 1}, {'kmax': 5},
+                        {'kmin': True}, {'kmin': 2, 'kmax': 2}):
             self.assertEqual(bic(X, **options), (None,) * 4)
 
     def test_sklearn_wrappers(self):

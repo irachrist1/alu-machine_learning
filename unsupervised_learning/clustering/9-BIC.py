@@ -5,7 +5,7 @@ expectation_maximization = __import__('8-EM').expectation_maximization
 
 
 def BIC(X, kmin=1, kmax=None, iterations=1000, tol=1e-5, verbose=False):
-    """Return the best cluster count, its parameters, likelihoods and BICs."""
+    """Compare at least two sizes and return the best model and scores."""
     if (not isinstance(X, np.ndarray) or X.ndim != 2 or
             X.shape[0] == 0 or X.shape[1] == 0 or
             X.dtype.kind not in 'biuf' or not np.all(np.isfinite(X)) or
@@ -16,7 +16,7 @@ def BIC(X, kmin=1, kmax=None, iterations=1000, tol=1e-5, verbose=False):
         return None, None, None, None
     if kmax is None:
         kmax = X.shape[0]
-    if type(kmax) is not int or not kmin <= kmax <= X.shape[0]:
+    if type(kmax) is not int or not kmin < kmax <= X.shape[0]:
         return None, None, None, None
     likelihoods = np.empty(kmax - kmin + 1)
     scores = np.empty(kmax - kmin + 1)
